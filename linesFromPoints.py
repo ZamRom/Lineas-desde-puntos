@@ -41,7 +41,7 @@ else:
                     x_1, y_1 = LP[i-1][0],LP[i-1][1]
                     x_2, y_2 = LP[i][0], LP[i][1]
                     if LP[i][0] == LP[i-1][0]:
-                        AT.write("ax.stem(%s, %s, bottom=%s)\n"%(x_1,y_2,y_1))
+                        AT.write("ax.stem(%s, %s, bottom=%s, linefmt='C%s-')\n"%(x_1,y_2,y_1,i))
                     else:
                         if x_1 < x_2:
                             A, B = x_1, x_2
@@ -61,7 +61,7 @@ else:
             if len(LP) > 1:
                 for i in range(len(LP)):
                     if LP[i][0] == pc[0]:
-                        AT.write("ax.stem(x%s, y%s, bottom=%s)\n"%(pc[0],LP[i][1],pc[1]))
+                        AT.write("ax.stem(x%s, y%s, bottom=%s, linefmt='C%s-')\n"%(pc[0],LP[i][1],pc[1],i))
                     else:
                         if pc[0] < LP[i][0]:
                             A, B = pc[0], LP[i][0]
@@ -84,7 +84,7 @@ else:
                 for n in LPT:
                     if e != LPT[i-1]:
                         if e[0] == LPT[i-1][0]:
-                            AT.write("ax.stem(%s, %s, bottom=%s)\n"%(LPT[i-1][0],e[1],LPT[i-1][1]))
+                            AT.write("ax.stem(%s, %s, bottom=%s, linefmt='C%s-')\n"%(LPT[i-1][0],e[1],LPT[i-1][1],i))
                             AT.write("\n")
                         else:
                             if LPT[i-1][0] < e[0]:
